@@ -1,7 +1,7 @@
 import decimal
 decimal.getcontext().prec = 6
 
-objects = [
+objects = [ # index 1 is force of the object hanging, 2 is the distance from the string holding it from above in centimeters.
     [decimal.Decimal(0.0981),decimal.Decimal(17.8)],
     [decimal.Decimal(0.0339),decimal.Decimal(10.6)],
     [decimal.Decimal(0.0678),decimal.Decimal(16.2)],
@@ -14,7 +14,7 @@ objects = [
     [decimal.Decimal(0.0194),decimal.Decimal(14.4)]
 ]
 
-levels = {
+levels = { # Level 1 is the top of the mobile and it decreases. Dropstring is the distance from the hanging point to the string that drops down to the next level.
     "level6": {"left": [objects[8]], "right": [objects[9]], "dropstring": False},
     "level5": {"left": [True], "right": [objects[7]], "dropstring": decimal.Decimal(9.5)},
     "level4": {"left": [objects[6]], "right": [True], "dropstring": decimal.Decimal(6)},
@@ -24,7 +24,7 @@ levels = {
 }
 
 
-sticks = [
+sticks = [ # forces of each stick, bottom to top of the mobile
     decimal.Decimal(0.0282),
     decimal.Decimal(0.0301),
     decimal.Decimal(0.0315),
@@ -34,7 +34,7 @@ sticks = [
 ]
 
 
-string = decimal.Decimal(0.00157)
+string = decimal.Decimal(0.00157) # calculated newton force of each segment of string approximately
 level_prompt = int(input("Level: "))
 target_level = levels[f"level{level_prompt}"]
 
